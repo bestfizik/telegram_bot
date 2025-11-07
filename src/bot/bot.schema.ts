@@ -1,15 +1,16 @@
-import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import { Model } from "mongoose";
-@Schema({ timestamps: true, versionKey: false })
-export class Bot extends Model {
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Document } from 'mongoose';
 
-    @Prop()
-    chatId: number;
+@Schema()
+export class User extends Document {
+  @Prop()
+  chatId: number;
 
-    @Prop()
-    username: string
+  @Prop()
+  name: string;
 
-    @Prop()
-    firtsname: string
+  @Prop()
+  lastStep: string;
 }
-export const BotSchema = SchemaFactory.createForClass(Bot)
+
+export const UserSchema = SchemaFactory.createForClass(User);
